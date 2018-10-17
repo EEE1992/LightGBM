@@ -6,13 +6,11 @@ jobs:
 - job: Linux
   pool:
     vmImage: 'ubuntu-16.04'
-#  container: ubuntu1404
   strategy:
     matrix:
       regular:
         TASK: regular
   steps:
   - script: |
-      docker run hello-world
-      docker run --rm kaggle/python
+      docker run --rm kaggle/python /bin/bash -c "pip install pytest rgf_python && git clone https://github.com/RGF-team/rgf.git && cd rgf/python-package/tests && pytest test_rgf_python.py"
     displayName: 'Test docker'
