@@ -14,4 +14,5 @@ jobs:
   steps:
   - script: |
       docker run hello-world
-    displayName: 'Set variables'
+      docker run --rm -it kaggle/python
+    displayName: 'Test docker'
